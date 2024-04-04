@@ -21,23 +21,24 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href=".assets/sass/style.sass" />
+    <link rel="stylesheet" type="text/css" href="./assets/style.css" />
     <title>ohmyfood</title>
   </head>
   <body>
-    <header>
+    <header class="header">
       <img
         class="header__logo"
         src="./assets/images/logo/ohmyfood.png"
         alt="Logo ohmyfood"
       />
       <section class="header__location">
-        <i class="fa-solid fa-location-dot"></i>
+        <i class="fa-solid fa-location-dot header__location__icon"></i>
         <input
           type="search"
           name="search-location"
           id="search-location"
           value="Paris, Belleville"
+          placeholder="Paris, Belleville"
         />
       </section>
     </header>
@@ -47,7 +48,9 @@
         <p class="hero__description">
           Découvrez des restaurants d'exception, sélectionnés par nos soins.
         </p>
-        <button class="hero__button">Explorer nos restaurants</button>
+        <a href="#" class="hero__link">
+          <button class="hero__link__button">Explorer nos restaurants</button>
+        </a>
       </section>
       <section class="operation">
         <h2 class="operation__title">Fonctionnement</h2>

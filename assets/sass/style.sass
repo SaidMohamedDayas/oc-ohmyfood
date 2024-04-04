@@ -1,24 +1,57 @@
 /********** Variables **********/
-$font-primary: "Roboto", sans-serif;
-$color-primary: #9356dc;
-$color-secondary: #ff79da;
-$color-tertiary: #99e2d0;
+$font-primary: "Roboto", sans-serif
+$color-primary: #9356dc
+$color-secondary: #ff79da
+$color-tertiary: #99e2d0
 
 /********** General **********/
-* {
-  font-family: $font-primary;
-  box-sizing: border-box;
-}
+*
+  font-family: $font-primary
+  box-sizing: border-box
+  margin: 0
+
 
 /********** Header **********/
+.header
+  display: flex
+  flex-direction: column
+  align-items: center
+
+  .header__logo
+    margin: 1rem 0
+    height: 2.25rem
+
+  .header__location
+    display: flex
+    justify-content: center
+    align-items: center
+    background-color: #EAEAEA
+    width: 100%
+    padding: 1rem 0
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25)
+  
+    .header__location__icon
+      margin-right: 0.9rem
+
+    #search-location
+      border: none
+      background-color: transparent
+      font-size: 1rem
+      width: 130px
+      
+      &::placeholder
+        background-color: transparent
+
+      &:focus
+        outline: none
 
 /********** Main **********/
 /**** Section - Hero ****/
 /**** Section - Operation ****/
 /**** Section - Restaurants ****/
-.restaurants {
-  display: flex;
-  flex-direction: column;
-}
+.restaurants 
+  display: flex
+  flex-direction: column
+
 
 /********** Footer **********/
