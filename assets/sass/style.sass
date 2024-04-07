@@ -1,11 +1,25 @@
 /********** Variables **********/
 $font-primary: "Roboto", sans-serif
+$font-logo: "Shrikhand", cursive
 $color-primary: #9356dc
 $color-secondary: #ff79da
 $color-tertiary: #99e2d0
-$color-grey: #EAEAEA
+$color-lightgrey: #EAEAEA
 $color-white: white
 $color-icon: #7E7E7E
+$color-filter: #F6F6F6
+$color-footer: #353535
+
+/********** Mixins **********/
+@mixin shadow ($blur, $opacity)
+  box-shadow: 0px 4px $blur 0px rgba(0,0,0,$opacity)
+
+@mixin flex ($direction, $justify, $align)
+  display: flex
+  flex-direction: $direction
+  justify-content: $justify
+  align-items: $align
+  
 
 /********** General **********/
 *
@@ -16,22 +30,18 @@ $color-icon: #7E7E7E
 
 /********** Header **********/
 .header
-  display: flex
-  flex-direction: column
-  align-items: center
+  @include flex (column, center, center)
 
   &__logo
     margin: 1rem 0
     height: 2.25rem
 
   &__location
-    display: flex
-    justify-content: center
-    align-items: center
-    background-color: $color-grey
+    background-color: $color-lightgrey
     width: 100%
     padding: 1rem 0
-    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25)
+    @include flex (row, center, center)
+    @include shadow(10px, 0.25)
   
     &__icon
       margin-right: 0.9rem
@@ -51,11 +61,10 @@ $color-icon: #7E7E7E
 /********** Main **********/
 /**** Section - Hero ****/
 .hero
-  display: flex
-  flex-direction: column
-  align-items: center
   text-align: center
-  margin: 2rem 1rem
+  padding: 2rem 1rem
+  @include flex (column, center, center)
+  background-color: $color-filter
 
   &__title
     font-size: 1.5rem
@@ -75,41 +84,46 @@ $color-icon: #7E7E7E
       border-radius: 50px
       padding: 1rem 2rem
       cursor: pointer
-      box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.25)
+      @include shadow(10px, 0.25)
 
       &:hover
         transition: 0.3s
-        box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.5)
+        background: linear-gradient(180deg, lighten($color-secondary, 5%), lighten($color-primary, 5%))
+        @include shadow (10px, 0.5)
+
+      &:active
+        transition: 0.1s
+        background: linear-gradient(180deg, lighten($color-secondary, 5%), lighten($color-primary, 5%))
+        @include shadow (10px, 0.5)
+        
 
 /**** Section - Operation ****/
 .operation
-  display: flex
-  flex-direction: column
+  @include flex (column, initial, initial)
   margin: 2rem 1rem
 
   &__title
     margin: 1rem 0
 
   &__filtres
-    display: flex
-    flex-direction: column
+    @include flex (column, initial, initial)
     padding: 10px
 
   &__filtre
     width: 100%
-    background-color: #F6F6F6
+    background-color: $color-filter
     margin: 1rem 0
-    padding: 1rem
+    padding: 2rem
     border-radius: 20px
-    box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.15)
     list-style: none
     cursor: pointer
-    display: flex
-    justify-content: space-evenly
+    @include flex (row, space-evenly, center)
+    @include shadow (15px, 0.15)
 
     &:hover
       transition: 0.3s
-      box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.25)
+      background-color: lighten($color-filter, 1%)
+      @include shadow (15px, 0.25)
 
       .operation__icon
         color: $color-primary
@@ -130,8 +144,67 @@ $color-icon: #7E7E7E
 
 /**** Section - Restaurants ****/
 .restaurants 
-  display: flex
-  flex-direction: column
+  @include flex (column, initial, initial)
+  padding: 2rem 1rem
+  background-color: $color-filter
+
+  &__title
+    margin: 1rem 0
+
+  &__cards
+    display: grid
+    grid-template-columns: 1fr
+    grid-template-rows: 1fr
+
+    &__link
+      text-decoration: none
+      color: black
+
+      &__card
+        border-radius: 20px
+        margin-bottom: 1rem
+
+        &__image
+          border-top-left-radius: 20px
+          border-top-right-radius: 20px
+          height: 250px
+          width: 100%
+          object-fit: cover
+
+        &__description
+          display: grid
+          grid-template-columns: 1fr auto
+          grid-template-rows: auto auto
+          align-items: center
+          padding: 1rem
+          background-color: $color-white
+          border-bottom-left-radius: 20px
+          border-bottom-right-radius: 20px
+
+          &__name
+            font-size: 1.125rem
+            grid-column: 1
+            grid-row: 1
+            align-self: center
+
+          &__location
+            font-size: 1.063rem
+            grid-column: 1
+            grid-row: 2
+            align-self: center
+
+          &__btn
+            grid-column: 2
+            grid-row: 1 / span 2
+            justify-self: end
+            border: none
+            background-color: transparent
+            font-size: 22px
+
+            &:hover
+              transition: 0.5s
+              background: linear-gradient(180deg, $color-secondary, $color-primary)
+          
 
 
 /********** Footer **********/

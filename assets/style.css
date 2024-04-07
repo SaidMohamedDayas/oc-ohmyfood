@@ -1,4 +1,5 @@
 /********** Variables **********/
+/********** Mixins **********/
 /********** General **********/
 * {
   font-family: "Roboto", sans-serif;
@@ -10,6 +11,7 @@
 .header {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 .header__logo {
@@ -17,13 +19,14 @@
   height: 2.25rem;
 }
 .header__location {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #EAEAEA;
   width: 100%;
   padding: 1rem 0;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
 }
 .header__location__icon {
   margin-right: 0.9rem;
@@ -44,11 +47,13 @@
 /********** Main **********/
 /**** Section - Hero ****/
 .hero {
+  text-align: center;
+  padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  text-align: center;
-  margin: 2rem 1rem;
+  background-color: #F6F6F6;
 }
 .hero__title {
   font-size: 1.5rem;
@@ -72,6 +77,12 @@
 }
 .hero__link__button:hover {
   transition: 0.3s;
+  background: linear-gradient(180deg, #ff93e1, #a16be0);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.5);
+}
+.hero__link__button:active {
+  transition: 0.1s;
+  background: linear-gradient(180deg, #ff93e1, #a16be0);
   box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
@@ -79,6 +90,8 @@
 .operation {
   display: flex;
   flex-direction: column;
+  justify-content: initial;
+  align-items: initial;
   margin: 2rem 1rem;
 }
 .operation__title {
@@ -87,22 +100,27 @@
 .operation__filtres {
   display: flex;
   flex-direction: column;
+  justify-content: initial;
+  align-items: initial;
   padding: 10px;
 }
 .operation__filtre {
   width: 100%;
   background-color: #F6F6F6;
   margin: 1rem 0;
-  padding: 1rem;
+  padding: 2rem;
   border-radius: 20px;
-  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
   list-style: none;
   cursor: pointer;
   display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
 }
 .operation__filtre:hover {
   transition: 0.3s;
+  background-color: #f9f9f9;
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.25);
 }
 .operation__filtre:hover .operation__icon {
@@ -126,6 +144,67 @@
 .restaurants {
   display: flex;
   flex-direction: column;
+  justify-content: initial;
+  align-items: initial;
+  padding: 2rem 1rem;
+  background-color: #F6F6F6;
+}
+.restaurants__title {
+  margin: 1rem 0;
+}
+.restaurants__cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+.restaurants__cards__link {
+  text-decoration: none;
+  color: black;
+}
+.restaurants__cards__link__card {
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+.restaurants__cards__link__card__image {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+}
+.restaurants__cards__link__card__description {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  align-items: center;
+  padding: 1rem;
+  background-color: white;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.restaurants__cards__link__card__description__name {
+  font-size: 1.125rem;
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+}
+.restaurants__cards__link__card__description__location {
+  font-size: 1.063rem;
+  grid-column: 1;
+  grid-row: 2;
+  align-self: center;
+}
+.restaurants__cards__link__card__description__btn {
+  grid-column: 2;
+  grid-row: 1/span 2;
+  justify-self: end;
+  border: none;
+  background-color: transparent;
+  font-size: 22px;
+}
+.restaurants__cards__link__card__description__btn:hover {
+  transition: 0.5s;
+  background: linear-gradient(180deg, #ff79da, #9356dc);
 }
 
 /********** Footer **********/
