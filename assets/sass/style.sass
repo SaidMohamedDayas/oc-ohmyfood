@@ -201,11 +201,27 @@ $color-footer: #353535
         margin-bottom: 1rem
 
         &__image
-          border-top-left-radius: 20px
-          border-top-right-radius: 20px
-          height: 250px
           width: 100%
-          object-fit: cover
+          @include flex (row-reverse, initial, initial)
+          
+
+          &__img
+            border-top-left-radius: 20px
+            border-top-right-radius: 20px
+            height: 250px
+            width: 100%
+            object-fit: cover
+
+          &__badge
+            background-color:#99E2D0
+            color: #008766
+            font-size: 0.875rem
+            padding: 6px 12px
+            margin: 12px
+            border-radius: 2px
+            position: absolute
+            @include shadow(4px, 0.15)
+
 
         &__description
           display: grid
