@@ -28,6 +28,44 @@ $color-footer: #353535
   margin: 0
 
 
+/********** Loader **********/
+.loader
+  position: fixed
+  z-index: 1
+  background: $color-lightgrey
+  @include flex (row, center, center)
+  height: 100vh
+  width: 100vw
+  transition: opacity 3s ease-in-out
+  opacity: 1
+  visibility: visible
+
+  &:not(:target)
+    animation: fadeOut 1.5s forwards 1.5s
+
+  &__round
+    width: 25px
+    height: 25px
+    border-radius: 50%
+    background: linear-gradient(180deg, $color-secondary, $color-primary)
+    margin: 0 15px
+    animation: loader 0.3s alternate infinite
+
+  .r2
+    animation-delay: 0.1s
+
+  .r3
+    animation-delay: 0.2s
+
+  @keyframes loader
+    100%
+      transform: translateY(-30px)
+
+  @keyframes fadeOut
+    to
+      opacity: 0
+      visibility: hidden
+
 /********** Header **********/
 .header
   @include flex (column, center, center)
@@ -95,7 +133,6 @@ $color-footer: #353535
         transition: 0.1s
         background: linear-gradient(180deg, lighten($color-secondary, 5%), lighten($color-primary, 5%))
         @include shadow (10px, 0.5)
-        
 
 /**** Section - Operation ****/
 .operation
@@ -140,7 +177,6 @@ $color-footer: #353535
 
   &__icon
     color: $color-icon
-
 
 /**** Section - Restaurants ****/
 .restaurants 
@@ -204,8 +240,6 @@ $color-footer: #353535
             &:hover
               transition: 0.5s
               background: linear-gradient(180deg, $color-secondary, $color-primary)
-          
-
 
 /********** Footer **********/
 .footer
