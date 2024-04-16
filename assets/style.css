@@ -60,7 +60,7 @@
 }
 .header__logo {
   margin: 1rem 0;
-  height: 2.25rem;
+  height: 2rem;
 }
 .header__location {
   background-color: #EAEAEA;
@@ -86,6 +86,13 @@
 }
 .header__location #search-location:focus {
   outline: none;
+}
+.header__arrow {
+  cursor: pointer;
+  position: absolute;
+  left: 25px;
+  font-size: 1.5rem;
+  color: black;
 }
 
 /********** Main **********/
