@@ -9,6 +9,8 @@ $color-white: white
 $color-icon: #7E7E7E
 $color-filter: #F6F6F6
 $color-footer: #353535
+$breakpoint: (tablet: 768px, desktop: 1024px)
+
 
 /********** Mixins **********/
 @mixin shadow ($blur, $opacity)
@@ -19,7 +21,7 @@ $color-footer: #353535
   flex-direction: $direction
   justify-content: $justify
   align-items: $align
-  
+
 
 /********** General **********/
 *
@@ -110,7 +112,7 @@ $color-footer: #353535
 
   &__description
     font-size: 1.125rem
-    margin: 1rem
+    margin: 1rem 0
 
   &__link
     margin: 1rem
@@ -139,6 +141,14 @@ $color-footer: #353535
   @include flex (column, initial, initial)
   margin: 2rem 1rem
 
+  @media (min-width: map-get($breakpoint, tablet))
+    margin: 2rem
+
+  @media (min-width: map-get($breakpoint, desktop))
+    max-width: 1053px
+    margin: 2rem auto
+    width: 90%
+
   &__title
     margin: 1rem 0
 
@@ -146,16 +156,25 @@ $color-footer: #353535
     @include flex (column, initial, initial)
     padding: 10px
 
+    @media (min-width: map-get($breakpoint, desktop))
+      @include flex (row, flex-start, center)
+      padding: 0
+
   &__filtre
     width: 100%
     background-color: $color-filter
     margin: 1rem 0
     padding: 2rem
+    gap: 20px
     border-radius: 20px
     list-style: none
+    font-weight: 500
     cursor: pointer
-    @include flex (row, space-evenly, center)
+    @include flex (row, flex-start, center)
     @include shadow (15px, 0.15)
+
+    @media (min-width: map-get($breakpoint, desktop))
+      margin: 1rem
 
     &:hover
       transition: 0.3s
@@ -175,6 +194,10 @@ $color-footer: #353535
     position: absolute
     left: 16px
 
+    @media (min-width: map-get($breakpoint, tablet))
+      left: initial
+      transform: translateX(-185%)
+
   &__icon
     color: $color-icon
 
@@ -184,31 +207,56 @@ $color-footer: #353535
   padding: 2rem 1rem
   background-color: $color-filter
 
+  @media (min-width: map-get($breakpoint, tablet))
+    @include flex (column, center, initial)
+    padding: 2rem
+
+  @media (min-width: map-get($breakpoint, desktop))
+    align-items: center
+
   &__title
     margin: 1rem 0
+    max-width: 1053px
+
+    @media (min-width: map-get($breakpoint, desktop))
+      width: 90%
 
   &__cards
     display: grid
     grid-template-columns: 1fr
     grid-template-rows: 1fr
 
+    @media (min-width: map-get($breakpoint, tablet))
+      max-width: 1053px
+      width: 100%
+
+    @media (min-width: map-get($breakpoint, desktop))
+      grid-template-columns: repeat(2, 1fr)
+      grid-template-rows: 1fr
+      max-width: 1053px
+      width: 90%
+      gap: 40px 70px
+
     &__link
       text-decoration: none
       color: black
+      margin-bottom: 1rem
+
+      @media (min-width: map-get($breakpoint, desktop))
+        margin: 0
+
 
       &__card
         border-radius: 20px
-        margin-bottom: 1rem
 
         &__image
           width: 100%
           @include flex (row-reverse, initial, initial)
-          
 
           &__img
             border-top-left-radius: 20px
             border-top-right-radius: 20px
-            height: 250px
+            height: 230px
             width: 100%
             object-fit: cover
 
@@ -263,6 +311,13 @@ $color-footer: #353535
   padding: 1rem
   @include flex (column, initial, flex-start)
 
+  @media (min-width: map-get($breakpoint, tablet))
+    @include flex (column, space-between, center)
+
+  @media (min-width: map-get($breakpoint, desktop))
+    @include flex (row-reverse, initial, center)
+    padding: 2rem 2rem 1.3rem 18rem
+
   &__logo
     font-family: $font-logo
     color: $color-white
@@ -275,6 +330,10 @@ $color-footer: #353535
     margin: 0
     padding: 0
     @include flex (column, center, flex-start)
+
+    @media (min-width: map-get($breakpoint, tablet))
+      @include flex (row, space-evenly, center)
+      width: 100%
 
     li
       margin: 0.5rem 0
