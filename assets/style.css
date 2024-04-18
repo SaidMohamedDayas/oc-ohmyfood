@@ -366,7 +366,7 @@
 /**** Section - Menu ****/
 .menu {
   background-color: #F6F6F6;
-  padding: 50px 20px 20px;
+  padding: 30px 20px 20px;
   border-radius: 40px 40px 0 0;
   position: relative;
   margin-top: -50px;
@@ -398,6 +398,7 @@
 }
 .menu__container__lists__item {
   width: 100%;
+  margin-bottom: 1.5rem;
 }
 .menu__container__lists__item h3 {
   font-size: 1rem;
@@ -466,6 +467,7 @@
   justify-content: center;
   align-items: center;
   text-decoration: none;
+  margin-top: 0;
 }
 
 /********** Footer **********/
