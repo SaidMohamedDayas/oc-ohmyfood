@@ -1,14 +1,20 @@
 /********** Variables **********/
+/**** Fonts ****/
 $font-primary: "Roboto", sans-serif
 $font-logo: "Shrikhand", cursive
+
+/**** Colors ****/
 $color-primary: #9356dc
 $color-secondary: #ff79da
-$color-tertiary: #99e2d0
+$color-tertiary: #F6F6F6
+$color-badge-background: #99e2d0
+$color-badge-text: #008766
 $color-lightgrey: #EAEAEA
 $color-white: white
 $color-icon: #7E7E7E
-$color-filter: #F6F6F6
 $color-footer: #353535
+
+/**** Breakpoints ****/
 $breakpoint: (tablet: 768px, desktop: 1024px)
 
 
@@ -107,13 +113,13 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
     color: black
       
 
-/********** Main **********/
+/********** Main - Homepage **********/
 /**** Section - Hero ****/
 .hero
   text-align: center
   padding: 2rem 1rem
   @include flex (column, center, center)
-  background-color: $color-filter
+  background-color: $color-tertiary
 
   &__title
     font-size: 1.5rem
@@ -171,7 +177,7 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
 
   &__filtre
     width: 100%
-    background-color: $color-filter
+    background-color: $color-tertiary
     margin: 1rem 0
     padding: 2rem
     gap: 20px
@@ -187,7 +193,7 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
 
     &:hover
       transition: 0.3s
-      background-color: lighten($color-filter, 1%)
+      background-color: lighten($color-tertiary, 1%)
       @include shadow (15px, 0.25)
 
       .operation__icon
@@ -214,7 +220,7 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
 .restaurants 
   @include flex (column, initial, initial)
   padding: 2rem 1rem
-  background-color: $color-filter
+  background-color: $color-tertiary
 
   @media (min-width: map-get($breakpoint, tablet))
     @include flex (column, center, initial)
@@ -270,8 +276,8 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
             object-fit: cover
 
           &__badge
-            background-color:#99E2D0
-            color: #008766
+            background-color: $color-badge-background
+            color: $color-badge-text
             font-size: 0.875rem
             padding: 6px 12px
             margin: 12px
@@ -313,6 +319,110 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
             &:hover
               transition: 0.5s
               background: linear-gradient(180deg, $color-secondary, $color-primary)
+
+
+/********** Main - Restaurants **********/
+/**** Section - Banner ****/
+.banner
+  height: 275px
+
+  &__image
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+/**** Section - Menu ****/
+.menu
+  background-color: $color-tertiary
+  padding: 50px 20px 20px
+  border-radius: 40px 40px 0 0
+  position: relative
+  margin-top: -50px
+
+  &__container
+    margin: 0
+
+    &__header
+      @include flex (row, space-between, center)
+      margin-bottom: 1.3rem
+
+      &__title
+        font-family: $font-logo
+        font-size: 1.8rem
+        font-style: italic
+        font-weight: 400
+
+      &__heart
+        font-size: 22px
+
+    &__lists
+      @include flex (column, initial, initial)
+      
+      &__item
+        width: 100%
+
+        h3
+          font-size: 1rem
+          font-weight: 300
+          text-transform: uppercase
+          border-bottom: 3px solid $color-badge-background
+          padding-bottom: 0.4rem
+          margin-bottom: 1rem
+          width: 40px
+
+        ul
+          list-style: none
+          padding: 0
+
+          .list
+            @include flex (row, space-between, flex-end)
+            @include shadow (15px, 0.10)
+            padding: 15px
+            border-radius: 15px
+            margin-bottom: 14px
+            
+            &__content
+              margin: 0
+
+              &__title
+                font-size: 1.1rem
+                font-weight: 500
+                margin-bottom: 0.3rem
+
+              &__subtitle
+                font-size: 0.9rem
+                font-weight: 300
+                
+            &__price
+              font-size: 0.9rem
+              font-weight: 700
+              color: $color-footer
+
+              &:hover
+                position: absolute
+                right: 90px
+
+            &__order
+              background-color: $color-badge-background
+              border-radius: 0 15px 15px 0
+              padding: 27.5px 20px
+              position: absolute
+              right: -60px
+              display: none
+
+              &:hover
+                display: block
+                transition: 0.3s
+                right: 20px
+                transform: translateY(20%)
+
+              &__icon
+                color: $color-white
+
+      &__link
+        @include flex (row, center, center)
+        text-decoration: none
+        
 
 /********** Footer **********/
 .footer
