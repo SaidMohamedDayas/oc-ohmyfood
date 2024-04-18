@@ -371,8 +371,20 @@
   position: relative;
   margin-top: -50px;
 }
+@media (min-width: 1024px) {
+  .menu {
+    max-width: 1055px;
+    margin: -50px auto 0;
+  }
+}
 .menu__container {
   margin: 0;
+}
+@media (min-width: 1024px) {
+  .menu__container {
+    max-width: 640px;
+    margin: 0 auto;
+  }
 }
 .menu__container__header {
   display: flex;
@@ -380,6 +392,15 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.3rem;
+}
+@media (min-width: 768px) {
+  .menu__container__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
 }
 .menu__container__header__title {
   font-family: "Shrikhand", cursive;

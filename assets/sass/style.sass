@@ -339,12 +339,25 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
   position: relative
   margin-top: -50px
 
+  @media (min-width: map-get($breakpoint, desktop))
+    max-width: 1055px
+    margin: -50px auto 0
+
   &__container
     margin: 0
+    
+    @media (min-width: map-get($breakpoint, desktop))
+      max-width: 640px
+      margin: 0 auto
 
     &__header
       @include flex (row, space-between, center)
       margin-bottom: 1.3rem
+
+      @media (min-width: map-get($breakpoint, tablet))
+        @include flex (row, center, center)
+        gap: 2rem
+        
 
       &__title
         font-family: $font-logo
