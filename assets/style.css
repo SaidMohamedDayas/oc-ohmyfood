@@ -446,11 +446,17 @@
 }
 .menu__container__lists__item ul .list__content {
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .menu__container__lists__item ul .list__content__title {
   font-size: 1.1rem;
   font-weight: 500;
   margin-bottom: 0.3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .menu__container__lists__item ul .list__content__subtitle {
   font-size: 0.9rem;
