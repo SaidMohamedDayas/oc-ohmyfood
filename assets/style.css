@@ -482,10 +482,7 @@
   font-size: 0.9rem;
   font-weight: 700;
   color: #353535;
-}
-.menu__container__lists__item ul .list__price:hover {
-  position: absolute;
-  right: 90px;
+  transition: 0.5s ease-in-out;
 }
 .menu__container__lists__item ul .list__order {
   background-color: #99e2d0;
@@ -494,15 +491,24 @@
   position: absolute;
   right: -60px;
   display: none;
-}
-.menu__container__lists__item ul .list__order:hover {
-  display: block;
-  transition: 0.3s;
-  right: 20px;
-  transform: translateY(20%);
+  transition: 0.5s ease-in-out;
 }
 .menu__container__lists__item ul .list__order__icon {
   color: white;
+}
+.menu__container__lists__item ul .list:hover {
+  cursor: pointer;
+}
+.menu__container__lists__item ul .list:hover .list__price {
+  position: absolute;
+  right: 90px;
+  transition: transform 300ms;
+}
+.menu__container__lists__item ul .list:hover .list__order {
+  display: block;
+  right: 20px;
+  transform: translateY(20%);
+  transition: transform 300ms;
 }
 .menu__container__lists__link {
   display: flex;

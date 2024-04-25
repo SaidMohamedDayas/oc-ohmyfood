@@ -411,6 +411,7 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
             padding: 15px
             border-radius: 15px
             margin-bottom: 14px
+
             
             &__content
               margin: 0
@@ -434,10 +435,7 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
               font-size: 0.9rem
               font-weight: 700
               color: $color-footer
-
-              &:hover
-                position: absolute
-                right: 90px
+              transition: .5s ease-in-out
 
             &__order
               background-color: $color-badge-background
@@ -446,15 +444,24 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
               position: absolute
               right: -60px
               display: none
-
-              &:hover
-                display: block
-                transition: 0.3s
-                right: 20px
-                transform: translateY(20%)
+              transition: .5s ease-in-out
 
               &__icon
                 color: $color-white
+                
+            &:hover
+              cursor: pointer
+
+              .list__price
+                position: absolute
+                right: 90px
+                transition: transform 300ms
+
+              .list__order
+                display: block
+                right: 20px
+                transform: translateY(20%)
+                transition: transform 300ms
 
       &__link
         @include flex (row, center, center)
