@@ -346,10 +346,26 @@
   border: none;
   background-color: transparent;
   font-size: 22px;
+  position: relative;
+  cursor: pointer;
 }
-.restaurants__cards__link__card__description__btn:hover {
-  transition: 0.5s;
-  background: linear-gradient(180deg, #ff79da, #9356dc);
+.restaurants__cards__link__card__description__btn .btn__icon--initial {
+  color: black;
+  position: absolute;
+  transition: transform 400ms;
+}
+.restaurants__cards__link__card__description__btn .btn__icon--solid {
+  background: linear-gradient(180deg, #9356dc 0%, #ff79da 100%);
+  background-clip: text;
+  color: transparent;
+  transform: scale(0);
+  transition: transform 400ms;
+}
+.restaurants__cards__link__card__description__btn:hover .btn__icon--solid {
+  transform: scale(1);
+}
+.restaurants__cards__link__card__description__btn:hover .btn__icon--initial {
+  transform: scale(0);
 }
 
 /********** Main - Restaurants **********/

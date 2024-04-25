@@ -315,10 +315,27 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
             border: none
             background-color: transparent
             font-size: 22px
+            position: relative
+            cursor: pointer
+
+            .btn__icon--initial
+              color: black
+              position: absolute
+              transition: transform 400ms
+              
+            .btn__icon--solid
+              background: linear-gradient(180deg, $color-primary 0%, $color-secondary 100%)
+              background-clip: text
+              color: transparent
+              transform: scale(0)
+              transition: transform 400ms
 
             &:hover
-              transition: 0.5s
-              background: linear-gradient(180deg, $color-secondary, $color-primary)
+              .btn__icon--solid
+                transform: scale(1)
+                
+              .btn__icon--initial
+                transform: scale(0)
 
 
 /********** Main - Restaurants **********/
