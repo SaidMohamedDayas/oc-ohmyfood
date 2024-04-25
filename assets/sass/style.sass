@@ -411,10 +411,11 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
             padding: 15px
             border-radius: 15px
             margin-bottom: 14px
-
+            position: relative
+            overflow: hidden
             
             &__content
-              margin: 0
+              margin: 0 30px 0 0
               overflow: hidden
               text-overflow: ellipsis
               white-space: nowrap
@@ -435,7 +436,11 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
               font-size: 0.9rem
               font-weight: 700
               color: $color-footer
-              transition: .5s ease-in-out
+
+              position: absolute
+              right: 20px
+              opacity: 1
+              transition: right 0.5s ease
 
             &__order
               background-color: $color-badge-background
@@ -443,25 +448,27 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
               padding: 27.5px 20px
               position: absolute
               right: -60px
-              display: none
-              transition: .5s ease-in-out
+              opacity: 0
+              transition: right 0.5s ease
 
               &__icon
                 color: $color-white
-                
+
             &:hover
               cursor: pointer
 
+              .list__content
+                margin-right: 80px
+
               .list__price
-                position: absolute
-                right: 90px
-                transition: transform 300ms
+                opacity: 1
+                right: 70px
 
               .list__order
                 display: block
-                right: 20px
+                opacity: 1
+                right: 0
                 transform: translateY(20%)
-                transition: transform 300ms
 
       &__link
         @include flex (row, center, center)
