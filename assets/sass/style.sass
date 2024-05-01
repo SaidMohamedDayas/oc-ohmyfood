@@ -70,7 +70,7 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
       transform: translateY(-30px)
 
   @keyframes fadeOut
-    to
+    100%
       opacity: 0
       visibility: hidden
 
@@ -386,6 +386,23 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
         width: 100%
         margin-bottom: 1.5rem
 
+        .l1 .list
+          animation-delay: 1s
+
+        .l2 .list
+          animation-delay: 2s
+
+        .l3 .list
+          animation-delay: 3s
+
+        @keyframes slideInLeft
+          0%
+            opacity: 0
+            transform: translateX(100%)
+          100%
+            opacity: 1
+            transform: translateX(0)
+
         h3
           font-size: 1rem
           font-weight: 300
@@ -407,6 +424,7 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
             margin-bottom: 14px
             position: relative
             overflow: hidden
+            animation: slideInLeft 1s ease forwards
             
             &__content
               margin: 0 30px 0 0
