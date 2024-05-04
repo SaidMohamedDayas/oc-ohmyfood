@@ -3,6 +3,28 @@
 /**** Colors ****/
 /**** Breakpoints ****/
 /********** Mixins **********/
+/********** Keyframes **********/
+@keyframes loader {
+  100% {
+    transform: translateY(-30px);
+  }
+}
+@keyframes fadeOut {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 /********** General **********/
 * {
   font-family: "Roboto", sans-serif;
@@ -41,17 +63,6 @@
 }
 .loader .r3 {
   animation-delay: 0.2s;
-}
-@keyframes loader {
-  100% {
-    transform: translateY(-30px);
-  }
-}
-@keyframes fadeOut {
-  100% {
-    opacity: 0;
-    visibility: hidden;
-  }
 }
 
 /********** Header **********/
@@ -535,16 +546,6 @@
   animation-delay: 1s;
 }
 
-@keyframes slideInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(100%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
 /********** Footer **********/
 .footer {
   background-color: #353535;

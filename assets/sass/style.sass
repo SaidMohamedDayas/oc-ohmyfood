@@ -29,6 +29,25 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
   align-items: $align
 
 
+/********** Keyframes **********/
+@keyframes loader
+    100%
+      transform: translateY(-30px)
+
+@keyframes fadeOut
+  100%
+    opacity: 0
+    visibility: hidden
+
+@keyframes slideInLeft
+          0%
+            opacity: 0
+            transform: translateX(100%)
+          100%
+            opacity: 1
+            transform: translateX(0)
+
+
 /********** General **********/
 *
   font-family: $font-primary
@@ -65,14 +84,6 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
   .r3
     animation-delay: 0.2s
 
-  @keyframes loader
-    100%
-      transform: translateY(-30px)
-
-  @keyframes fadeOut
-    100%
-      opacity: 0
-      visibility: hidden
 
 /********** Header **********/
 .header
@@ -482,14 +493,6 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
 
   &:nth-child(3)
     animation-delay: 1s
-
-@keyframes slideInLeft
-          0%
-            opacity: 0
-            transform: translateX(100%)
-          100%
-            opacity: 1
-            transform: translateX(0)
 
 /********** Footer **********/
 .footer
