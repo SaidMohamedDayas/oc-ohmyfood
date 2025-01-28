@@ -6,23 +6,23 @@ $font-logo: "Shrikhand", cursive
 /**** Colors ****/
 $color-primary: #9356dc
 $color-secondary: #ff79da
-$color-tertiary: #F6F6F6
+$color-tertiary: #f6f6f6
 $color-badge-background: #99e2d0
 $color-badge-text: #008766
-$color-lightgrey: #EAEAEA
-$color-white: white
-$color-icon: #7E7E7E
+$color-lightgrey: #eaeaea
+$color-white: #ffffff
+$color-icon: #7e7e7e
 $color-footer: #353535
 
 /**** Breakpoints ****/
-$breakpoint: (tablet: 768px, desktop: 1024px)
+$breakpoints: (tablet: 768px, desktop: 1024px)
 
 
 /********** Mixins **********/
-@mixin shadow ($blur, $opacity)
-  box-shadow: 0px 4px $blur 0px rgba(0,0,0,$opacity)
+@mixin shadow($blur, $opacity)
+  box-shadow: 0px 4px $blur 0px rgba(0, 0, 0, $opacity)
 
-@mixin flex ($direction, $justify, $align)
+@mixin flex($direction: row, $justify: flex-start, $align: stretch)
   display: flex
   flex-direction: $direction
   justify-content: $justify
@@ -31,8 +31,8 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
 
 /********** Keyframes **********/
 @keyframes loader
-    100%
-      transform: translateY(-30px)
+  100%
+    transform: translateY(-30px)
 
 @keyframes fadeOut
   100%
@@ -161,10 +161,10 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
   @include flex (column, initial, initial)
   margin: 2rem 1rem
 
-  @media (min-width: map-get($breakpoint, tablet))
+  @media (min-width: map-get($breakpoints, tablet))
     margin: 2rem
 
-  @media (min-width: map-get($breakpoint, desktop))
+  @media (min-width: map-get($breakpoints, desktop))
     max-width: 1053px
     margin: 2rem auto
     width: 90%
@@ -176,7 +176,7 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
     @include flex (column, initial, initial)
     padding: 10px
 
-    @media (min-width: map-get($breakpoint, desktop))
+    @media (min-width: map-get($breakpoints, desktop))
       @include flex (row, flex-start, center)
       padding: 0
 
@@ -193,7 +193,7 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
     @include flex (row, flex-start, center)
     @include shadow (15px, 0.15)
 
-    @media (min-width: map-get($breakpoint, desktop))
+    @media (min-width: map-get($breakpoints, desktop))
       margin: 1rem
 
     &:hover
@@ -214,7 +214,7 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
     position: absolute
     left: 16px
 
-    @media (min-width: map-get($breakpoint, tablet))
+    @media (min-width: map-get($breakpoints, tablet))
       left: initial
       transform: translateX(-185%)
 
@@ -227,18 +227,18 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
   padding: 2rem 1rem
   background-color: $color-tertiary
 
-  @media (min-width: map-get($breakpoint, tablet))
+  @media (min-width: map-get($breakpoints, tablet))
     @include flex (column, center, initial)
     padding: 2rem
 
-  @media (min-width: map-get($breakpoint, desktop))
+  @media (min-width: map-get($breakpoints, desktop))
     align-items: center
 
   &__title
     margin: 1rem 0
     max-width: 1053px
 
-    @media (min-width: map-get($breakpoint, desktop))
+    @media (min-width: map-get($breakpoints, desktop))
       width: 90%
 
   &__cards
@@ -246,11 +246,11 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
     grid-template-columns: 1fr
     grid-template-rows: 1fr
 
-    @media (min-width: map-get($breakpoint, tablet))
+    @media (min-width: map-get($breakpoints, tablet))
       max-width: 1053px
       width: 100%
 
-    @media (min-width: map-get($breakpoint, desktop))
+    @media (min-width: map-get($breakpoints, desktop))
       grid-template-columns: repeat(2, 1fr)
       grid-template-rows: 1fr
       max-width: 1053px
@@ -262,7 +262,7 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
       color: black
       margin-bottom: 1rem
 
-      @media (min-width: map-get($breakpoint, desktop))
+      @media (min-width: map-get($breakpoints, desktop))
         margin: 0
 
 
@@ -361,14 +361,14 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
   position: relative
   margin-top: -50px
 
-  @media (min-width: map-get($breakpoint, desktop))
+  @media (min-width: map-get($breakpoints, desktop))
     max-width: 1055px
     margin: -50px auto 0
 
   &__container
     margin: 0
     
-    @media (min-width: map-get($breakpoint, desktop))
+    @media (min-width: map-get($breakpoints, desktop))
       max-width: 640px
       margin: 0 auto
 
@@ -376,7 +376,7 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
       @include flex (row, space-between, center)
       margin-bottom: 1.3rem
 
-      @media (min-width: map-get($breakpoint, tablet))
+      @media (min-width: map-get($breakpoints, tablet))
         @include flex (row, center, center)
         gap: 2rem
         
@@ -392,6 +392,7 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
 
     &__lists
       @include flex (column, initial, center)
+      overflow: hidden
       
       &__item
         width: 100%
@@ -483,6 +484,7 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
 
 .anim-item
   opacity: 0
+  transform: translateX(-100%)
   animation: slideInLeft 1s ease forwards
 
   &:nth-child(1)
@@ -500,10 +502,10 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
   padding: 1rem
   @include flex (column, initial, flex-start)
 
-  @media (min-width: map-get($breakpoint, tablet))
+  @media (min-width: map-get($breakpoints, tablet))
     @include flex (column, space-between, center)
 
-  @media (min-width: map-get($breakpoint, desktop))
+  @media (min-width: map-get($breakpoints, desktop))
     @include flex (row-reverse, initial, center)
     padding: 2rem 2rem 1.3rem 18rem
 
@@ -520,7 +522,7 @@ $breakpoint: (tablet: 768px, desktop: 1024px)
     padding: 0
     @include flex (column, center, flex-start)
 
-    @media (min-width: map-get($breakpoint, tablet))
+    @media (min-width: map-get($breakpoints, tablet))
       @include flex (row, space-evenly, center)
       width: 100%
 
